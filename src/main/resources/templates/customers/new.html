@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/customers}">コメント帳</a>
+    </nav>
+    <div class="row">
+        <div class="container">
+            <h3>人々作成</h3>
+            <form th:method="post" th:action="@{./}" th:object="${customerInput}">
+                <div class="form-group">
+                    <label>氏名</label>
+                    <input class="form-control" type="text" th:field="*{name}" />
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+                    <label>メールアドレス</label>
+                    <input class="form-control" type="text" th:field="*{email}" />
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+                    <input class="btn btn-primary" type="submit" value="作成" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

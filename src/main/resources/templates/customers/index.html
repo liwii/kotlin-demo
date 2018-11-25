@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/customers}">コメント帳</a>
+</nav>
+<div class="row">
+    <div class="container">
+        <h3>人々</h3>
+        <div th:unless="${customers.isEmpty()}">
+            <div class="card" th:each="customer: ${customers}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${customer.name}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="${customer.email}"></h6>
+                    <form class="form-inline" th:object="${customer}" th:action="@{/customers/__${customer.id}__}" th:method="delete">
+                        <a class="btn btn-primary" th:href="@{/customers/__${customer.id}__}">コメントする</a>
+                        <a class="btn btn-secondary" th:href="@{/customers/__${customer.id}__/edit}">編集</a>
+                        <input type="submit" value="削除" class="btn btn-danger"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary btn-block" th:href="@{/customers/new}">人々を追加</a>
+    </div>
+</div>
+</body>
+</html>

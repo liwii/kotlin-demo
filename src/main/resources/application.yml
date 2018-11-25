@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/kotlindemo
+    username: ryuukouki
+    password:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: #ここにgmailアドレスを書く
+    password: #ここにgmailのアプリパスワードを書く
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+
+
+doma:
+  dialect: postgres

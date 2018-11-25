@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" th:href="@{/customers}">コメント帳</a>
+        </nav>
+        <div class="row">
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">コメント帳にようこそ！</h1>
+                    <p class="lead">コメント帳で、気になる人にコメントを残しましょう。</p>
+                    <hr class="my-4">
+                    <p>コメントを残された人には、自動的にメールが送られます</p>
+                    <a class="btn btn-primary btn-lg" th:href="@{/customers}" role="button">今すぐのぞいてみる</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
